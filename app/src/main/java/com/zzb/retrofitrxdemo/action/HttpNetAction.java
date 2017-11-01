@@ -2,7 +2,6 @@ package com.zzb.retrofitrxdemo.action;
 
 import android.util.Log;
 
-import com.google.gson.Gson;
 import com.zzb.retrofitrxdemo.bean.UserLoginBean;
 import com.zzb.retrofitrxdemo.constance.InterfaceUrl;
 import com.zzb.retrofitrxdemo.services.RestClient;
@@ -53,23 +52,12 @@ public class HttpNetAction {
 
                     @Override
                     public void onNext(UserLoginBean userLoginBean) {
-                        Log.e(TAG, "onNext: ");
                         UserLoginBean.RetDataBean bean = userLoginBean.getRet_data();
                         //发送内容
-                        RxBus.getInstance().post(  eventMessage, bean );
+                        RxBus.getInstance().post(eventMessage, bean);
                     }
                 });
     }
 
 
-}
-
-
-class GsonUtils {
-    //将Json数据解析成相应的映射对象
-    public static <T> T parseJsonWithGson(String jsonData, Class<T> type) {
-        Gson gson = new Gson();
-        T result = gson.fromJson(jsonData, type);
-        return result;
-    }
 }

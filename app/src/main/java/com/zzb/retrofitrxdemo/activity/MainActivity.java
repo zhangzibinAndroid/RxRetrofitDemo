@@ -36,10 +36,8 @@ public class MainActivity extends AppCompatActivity {
             public void call(UserLoginBean.RetDataBean bean) {
                 tvContent.setText(bean.getRealName());
             }
-        }) ;
-
+        });
         HttpNetAction.getInstance().postUserLogin("LoginServer", "student222", "123456", "userLogin");
-
     }
 
     @Override

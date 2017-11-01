@@ -17,7 +17,6 @@ import rx.subjects.Subject;
  */
 
 public class RxBus {
-
     private static final String TAG = RxBus.class.getSimpleName();
     private static RxBus instance;
     public static boolean DEBUG = false;
